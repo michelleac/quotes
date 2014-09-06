@@ -1,0 +1,13 @@
+<h1>Listing Quotes</h1>
+
+<% @quotes.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |quote| %>
+      <div class="span4">
+        <%= image_tag quote.picture_url, :width => '100%' if quote.picture.present?%>
+        <h4><%= link_to quote.title, quote %></h4>
+        <%= quote.content %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
